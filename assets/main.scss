@@ -1,0 +1,455 @@
+---
+# // Main Stylesheet
+---
+@charset "utf-8";
+
+
+// Imports
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Cardo:400,400i,700&subset=greek,greek-ext,latin-ext');
+
+
+// Variables Initialization
+
+// Coloring
+$body-bg-color:      #fff;
+$body-fg-color:      #666;
+$header-bg-color:    #000;
+$header-fg-color:    #fff;
+$main-bg-color:      inherit;
+$main-fg-color:      inherit;
+$main-bg-color:      inherit;
+$footer-bg-color:    #333;
+$footer-fg-color:    #fff;
+$portfolio-fg-color: #000;
+
+// Typography
+$font-stack: (
+  "Cardo",
+  "Georgia",
+  "Times",
+  "Times New Roman",
+  serif,
+);
+
+
+// Normalization
+// Based on normalize.css v7.0.0 | MIT License
+
+// Correct the line height in all browsers and prevent adjustments of font size
+// after orientation changes in IE on Windows Phone and in iOS.
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+// Remove the margin in all browsers.
+body { margin: 0; }
+
+// Add the correct display in IE 9-.
+article, aside, footer, header, nav, section, main { display: block; }
+
+// Correct the font size and margin on `h1` elements within `section` and
+// `article` contexts in Chrome, Firefox, and Safari.
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+// Add the correct box sizing in Firefox and show the overflow in Edge and IE.
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+// Remove the gray background on active links in IE 10 and remove gaps in links
+// underline in iOS 8+ and Safari 8+.
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+// Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+b, strong { font-weight: inherit; }
+
+// Add the correct font weight in Chrome, Edge, and Safari.
+b, strong { font-weight: bolder; }
+
+// Remove the border on images inside links in IE 10-.
+img { border-style: none; }
+
+// Hide the overflow in IE.
+svg:not(:root) { overflow: hidden; }
+
+
+// Styling
+
+// Background, viewport and text.
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: $font-stack;
+  color: $body-fg-color;
+  background-color: $body-bg-color;
+}
+
+// Header, navigation and page image.
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  color: $header-fg-color;
+  background-attachment: fixed;
+  background-color: $header-bg-color;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $header-bg-color;
+    content: '';
+    opacity: .3;
+  }
+
+  h1 {
+    z-index: 0;
+    margin-top: 1.84em;
+    font-size: 4em;
+    text-align: center;
+
+    // Responsive title size
+    @media only screen and (max-width: 1280px) {
+      & { font-size: 3.5em; }
+    }
+
+    @media only screen and (max-width: 1024px) {
+      & { font-size: 3em; }
+    }
+
+    @media only screen and (max-width: 800px) {
+      & { font-size: 2.5em; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      & { font-size: 2em; }
+    }
+  }
+
+  nav {
+    position: absolute;
+    right: .17em;
+    bottom: .17em;
+
+    ul {
+      padding: 0;
+      margin: 0;
+
+      & > li {
+        display: inline-block;
+        list-style: none;
+
+        .link {
+          display: block;
+          font-size: 2em;
+          color: $header-fg-color;
+          text-decoration: none;
+
+          &:link, &:visited, &:hover, &:focus, &:active {
+            color: $header-fg-color;
+          }
+
+          // Responsive title size
+          @media only screen and (max-width: 1280px) {
+            & { font-size: 1.5em; }
+          }
+
+          @media only screen and (max-width: 480px) {
+            & { font-size: 1em; }
+          }
+        }
+      }
+    }
+  }
+
+  .brand {
+    position: absolute;
+    top: .17em;
+    left: .17em;
+    display: block;
+    font-size: 2em;
+    color: $header-fg-color;
+    text-decoration: none;
+
+    &:link, &:visited, &:hover, &:focus, &:active {
+      color: $header-fg-color;
+    }
+
+    // Responsive title size
+    @media only screen and (max-width: 1280px) {
+      & { font-size: 1.5em; }
+    }
+
+    @media only screen and (max-width: 480px) {
+      & { font-size: 1em; }
+    }
+  }
+}
+
+// Main content box.
+main {
+  padding: 1em;
+  margin: 0 5%;
+  color: $main-fg-color;
+  background-color: $main-bg-color;
+
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+
+  #description {
+    float: right;
+    width: 25%;
+
+    @media only screen and (max-width: 800px) {
+      & {
+        float: none;
+        width: auto;
+      }
+    }
+  }
+
+  #portfolio {
+    h2 {
+      font-size: 2em;
+      color: $portfolio-fg-color;
+      text-align: center;
+      border-bottom: thin solid $portfolio-fg-color;
+    }
+
+    ul {
+      padding: 0;
+      column-count: 2;
+
+      @media only screen and (max-width: 480px) {
+        & { column-count: inherit; }
+      }
+    }
+
+    li {
+      margin-bottom: 2em;
+      list-style: none;
+
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+
+      & img {
+        transform: scale(1);
+        transition-duration: .3s;
+      }
+
+      &:hover img { transform: scale(1.05); }
+
+      & h3,
+      & p {
+        transform: translateY(0);
+        transition-duration: .3s;
+      }
+
+      &:hover h3,
+      &:hover p { transform: translateY(-1rem); }
+    }
+
+    a {
+      position: relative;
+      display: block;
+      padding: 0 1.25rem;
+      color: $main-fg-color;
+      text-decoration: none;
+
+      &:link, &:visited, &:hover, &:focus, &:active {
+        color: $main-fg-color;
+      }
+    }
+
+    h3 {
+      margin: .5rem;
+      font-weight: bolder;
+      color: $portfolio-fg-color;
+    }
+
+    p {
+      margin: .5rem;
+
+      &::before {
+        position: relative;
+        top: -.25rem;
+        display: inline-block;
+        width: 2rem;
+        height: 1px;
+        margin-right: 1em;
+        background: $body-fg-color;
+        content: '';
+      }
+    }
+
+    img { width: 100%; }
+  }
+
+  #gallery {
+    width: 75%;
+
+    @media only screen and (max-width: 800px) {
+      & { width: auto; }
+    }
+
+    ul { padding: 0; }
+
+    li {
+      position: relative;
+      float: left;
+      width: 20%;
+      padding-bottom: 20%;
+      list-style: none;
+
+      // Responsive image gallery
+      @media only screen and (max-width: 1280px) {
+        & {
+          width: 25%;
+          padding-bottom: 25%;
+        }
+      }
+
+      @media only screen and (max-width: 1024px) {
+        & {
+          width: 33.3%;
+          padding-bottom: 33.3%;
+        }
+      }
+
+      @media only screen and (max-width: 800px) {
+        & {
+          width: 50%;
+          padding-bottom: 50%;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        & {
+          width: 100%;
+          padding-bottom: 100%;
+        }
+      }
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      right: 1em;
+      bottom: 1em;
+      left: 0;
+      overflow: hidden;
+      transform: scale(1);
+      transition-duration: .3s;
+
+      &:hover { transform: scale(1.05); }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+// Footer.
+footer {
+  padding: .5em;
+  margin-top: 1em;
+  color: $footer-fg-color;
+  background-color: $footer-bg-color;
+
+  address {
+    float: left;
+    max-width: 75%;
+    font-style: inherit;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:link, &:visited, &:hover, &:focus, &:active {
+        color: inherit;
+      }
+    }
+  }
+
+  // Navigation of associated links.
+  nav {
+    float: right;
+
+    ul {
+      display: inline-block; // Inline display fallback
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      & > li {
+        display: inline-block;
+        vertical-align: baseline;
+
+        .link {
+          display: inline-block;
+          padding: 0;
+          margin: 10px;
+          opacity: 1;
+
+          [class^="icon-"] {
+            display: block;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            margin: 0;
+            font-size: 48px;
+            line-height: 48px;
+            background-repeat: no-repeat;
+            -webkit-font-smoothing: antialiased;
+          }
+
+          &:hover { opacity: .7; }
+        }
+      }
+    }
+  }
+
+  #copyright {
+    padding: 0 0 1em;
+    margin: 0;
+    clear: both;
+    text-align: center;
+  }
+}
+
+// Icons
+.icon-facebook {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAh1BMVEUAAAA7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZg7WZjIaOvfAAAALHRSTlMAAQIEBgkQFR4fIyQqKy02O05haWtxd3+FiImRkpioqq+wtLnA0eDi5Ovv/Qnm71AAAACZSURBVEjH7dLJDoIwFIXhi1BRQZwFAXEeue//fC7a64qGnjX9dw3nS0haIlthuq0ut2tzzNeK+ot2Lf+b9O+nH2YEzJghoL4gKBgDikGwRMFBhs95SC7dBcTk1svsH457kjuuXYH8UTEEMEp0As7mnNjAmLt7o+CEgj0KVijIUBCjIAJBa7+5QCfLUh/98/bAg6GBjWnR9fEHvdtiZpLnI6EAAAAASUVORK5CYII=');
+  background-image:
+  linear-gradient(transparent, transparent),
+  url('data:image/svg+xml;utf8,<svg style="color: rgb(59,89,152);" aria-hidden="true" data-prefix="fab" data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 512" class="svg-inline--fa fa-facebook-f fa-w-9 fa-3x"><path fill="currentColor" d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229" class=""></path></svg>');
+}

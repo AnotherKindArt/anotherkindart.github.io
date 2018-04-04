@@ -1,0 +1,98 @@
+collections:
+  projects:
+    output: true
+plugins:
+  - jekyll-default-layout
+  - jekyll-sass-converter
+  - jekyll-titles-from-headings
+exclude:
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  auto_ids: false
+sass:
+  style: compact
+defaults:
+  - values:
+      language: en
+  - scope:
+      path: '/de/*'
+    values:
+      language: de
+  - scope:
+      path: '*/de'
+    values:
+      language: de
+  - scope:
+      path: '/el/*'
+    values:
+      language: el
+  - scope:
+      path: '*/el'
+    values:
+      language: el
+  - scope:
+      type: projects
+    values:
+      layout: project
+languages:
+  en: English
+  de: Deutsch
+  el: Ελληνικά
+title: AnotherKindArt
+description:
+  en: Set Construction
+  de: Kulissenbau
+  el: Κατασκευή σκηνικών και ειδικές κατασκευές
+keywords:
+  en:
+    - set construction
+    - scenery construction
+    - stagecraft
+  de:
+    - kulissenbau
+    - bühnenbau
+  el:
+    - κατασκευή σκηνικών
+    - σκηνικά θεάτρου
+    - ειδικές κατασκευές
+facebook:
+  page_ids:
+    - '493278847374511'
+linked_data:
+  name: AnotherKindArt
+  telephone: '+306932288532'
+  email: 'info@anotherkindart.com'
+  description: Set Construction
+  address:
+    '@type': PostalAddress
+    streetAddress: '59, Mpiskini Str.'
+    addressLocality: Zografos
+    addressRegion: Attica
+    addressCountry: Greece
+  sameAs:
+    - 'https://www.facebook.com/AnotherKindArt-493278847374511/'
+links:
+  facebook:
+    href: 'https://www.facebook.com/AnotherKindArt-493278847374511/'
+google_analytics: 'UA-54714657-2'
+address:
+  en: >-
+    *AnotherKindArt* <br>
+    Scenery Construction <br>
+    59, Mpiskini Str. 157 71, Zografos, Greece <br>
+    &#x1f4f1; +30.6932288532 &nbsp;
+    &#x1f4e7; <a href="mailto:info@anotherkindart.com">info@anotherkindart.com</a>
+  de: >-
+    *AnotherKindArt* <br>
+    Kulissenbau <br>
+    Mpiskini 59, 157 71, Zografos, Griechenland <br>
+    &#x1f4f1; +30.6932288532 &nbsp;
+    &#x1f4e7; <a href="mailto:info@anotherkindart.com">info@anotherkindart.com</a>
+  el: >-
+    *AnotherKindArt* <br>
+    Θεατρικά σκηνικά - Ειδικές κατασκευές <br>
+    Μπισκίνη 59, 157 71, Ζωγράφος <br>
+    &#x1f4f1; 6932288532 &nbsp;
+    &#x1f4e7; <a href="mailto:info@anotherkindart.com">info@anotherkindart.com</a>
+copyright: '&copy; 2011-2018 AnotherKindArt'

@@ -1,0 +1,157 @@
+<!DOCTYPE html>{% assign language = page.language | default: site.language | default: 'en' %}
+<html lang="{{ language }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% assign site_title = site.title[language] | default: site.title %}
+    {% if page.title %}
+    <title>{{ page.title | append: ' - ' | append: site_title | smartify | strip_html | normalize_whitespace | escape }}</title>
+    {% else %}
+    <title>{{ site_title | smartify | strip_html | normalize_whitespace | escape }}</title>
+    {% endif %}
+    {% if page.description or page.excerpt %}
+    <meta name="description" content="{{ page.description | default: page.excerpt | markdownify | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    {% endif %}
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords | join: ', ' | smartify | strip_html | normalize_whitespace | escape }}">
+    {% endif %}
+    <link rel="canonical" href="{{ page.url | replace: '/index.html', '/' | absolute_url }}">
+
+    {% assign projects = site.projects | where: 'slug', page.slug %}
+    {% for project in projects %}
+    <link rel="alternate" href="{{ project.url | replace: '/index.html', '/' | absolute_url }}" hreflang="{{ project.language }}">
+    {% endfor %}
+
+    {% if page.title %}
+    <meta property="og:title" content="{{ page.title | smartify | strip_html | normalize_whitespace | escape }}">
+    {% endif %}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | replace: '/index.html', '/' | absolute_url }}">
+    {% if page.image %}
+    {% assign image = page.image.facebook | default: page.image.path | default: page.image %}
+    {% unless image contains "://" %}{% assign image = image | absolute_url %}{% endunless %}
+    <meta property="og:image" content="{{ image | escape }}">
+    {% endif %}
+    {% if page.description or page.excerpt %}
+    <meta property="og:description" content="{{ page.description | default: page.excerpt | markdownify | strip_html | normalize_whitespace | escape }}">
+    {% endif %}
+    <meta property="og:locale" content="{{ language }}">
+    <meta property="og:updated_time" content="{{ site.time | date_to_xmlschema }}">
+    {% if site.facebook.page_ids %}
+    <meta property="fb:pages" content="{{ site.facebook.page_ids | join: ', ' }}">
+    {% endif %}
+
+    <meta name="twitter:card" content="summary">
+    {% if site.twitter.username %}
+    <meta name="twitter:site" content="@{{ site.twitter.username | replace: '@', '' }}">
+    {% endif %}
+    {% if page.title %}
+    <meta name="twitter:title" content="{{ page.title | smartify | strip_html | normalize_whitespace | escape }}">
+    {% endif %}
+    {% if page.description or page.excerpt %}
+    <meta name="twitter:description" content="{{ page.description | default: page.excerpt | markdownify | strip_html | normalize_whitespace | escape }}">
+    {% endif %}
+    {% if page.image %}
+    {% assign image = page.image.twitter | default: page.image.path | default: page.image %}
+    {% unless image contains "://" %}{% assign image = image | absolute_url %}{% endunless %}
+    <meta name="twitter:image" content="{{ image | escape }}">
+    {% endif %}
+
+    {% assign timestamp = site.time | date: '%s' %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/1.0.1/luminous-basic.min.css">
+    <link rel="stylesheet" href="{{ '/assets/main.css?v=' | append: timestamp | relative_url }}">
+  </head>
+  <body>
+    {% assign image = page.image.path | default: page.image %}
+    {% unless image contains "://" %}{% assign image = image | relative_url %}{% endunless %}
+    <header{% if image %} style="background-image: url('{{ image | escape }}');"{% endif %}>
+      {% assign index = site.pages | where: 'layout', 'home' | where: 'language', page.language | first %}
+      {% if index %}
+      <a class="brand" href="{{ index.url | replace: '/index.html', '/' | relative_url }}">{{ site.title[language] | default: site.title | smartify }}</a>
+      {% else %}
+      <span class="brand">{{ site.title[language] | default: site.title | smartify }}</span>
+      {% endif %}
+      {% if page.title %}<h1>{{ page.title | smartify }}</h1>{% endif %}
+      {% assign projects = site.projects | where: 'slug', page.slug | where_exp: 'item', 'item.url != page.url' | sort: 'language' %}
+      {% if projects %}
+      <nav>
+        <ul>
+          {% for project in projects %}
+            <li>
+              <a href="{{ project.url | replace: '/index.html', '/' | relative_url }}" hreflang="{{ project.language }}" rel="alternate" title="{{ site.languages[project.language] }}" class="link">
+                {{ project.language }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+    </header>
+    <main>
+      {% if page.gallery %}
+      <div id="description">
+        {{ content }}
+      </div>
+      {% else %}
+        {{ content }}
+      {% endif %}
+
+      <div id="gallery">
+        <ul>
+          {% for image in page.gallery %}
+          <li>
+            <a href="{{ image | relative_url }}">
+              <img src="{{ image | relative_url }}"{% if page.title %} alt="{{ page.title | smartify | strip_html | normalize_whitespace | escape }} ({{ forloop.index }})"{% endif %}>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </main>
+    <footer>
+      {% if page.address or site.address[language] or site.address %}
+      <address>{{ page.address | default: site.address[language] | default: site.address | markdownify }}</address>
+      {% endif %}
+
+      {% assign links = page.links | default: site.links %}
+      {% if links %}
+      <nav>
+        <ul>
+          {% for link in links %}
+            <li>
+              {% assign title = link[0] | capitalize %}
+              <a href="{{ link[1].href | default: link[1] }}" title="{{ link[1].title | default: title | smartify | strip_html | normalize_whitespace | escape }}" target="_blank" rel="noopener noreferrer" class="link">
+                <i class="icon-{{ link[0] }}"></i>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      {% endif %}
+
+      {% if site.copyright %}
+      <p id="copyright">{{ site.copyright }}</p>
+      {% else %}
+      <p id="copyright">&copy; {{ "today" | date: "%Y" }} {{ site.title[language] | default: site.title | smartify }}</p>
+      {% endif %}
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luminous-lightbox/1.0.1/Luminous.min.js" integrity="sha256-EzO28u8m/P+Z+eQCVS4kSkt1zjFLpxmCxydymMaRONs=" crossorigin="anonymous"></script>
+    <script>
+      new LuminousGallery(document.querySelectorAll('#gallery a'));
+    </script>
+    {% if jekyll.environment == 'production' and site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
+</html>
