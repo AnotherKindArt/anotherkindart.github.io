@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: AnotherKindArt/anotherkindart.github.io
+media_folder: '_projects/images'
+public_folder: '/projects/images'
+slug:
+  encoding: ascii
+  clean_accents: true
+collections:
+  - name: pages
+    label: Pages
+    label_singular: Page
+    files:
+      - name: index
+        label: Home
+        file: 'index.md'
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Excerpt, name: excerpt, widget: text, required: false }
+          - { label: Body, name: body, widget: markdown }
+        editor:
+          preview: false
+      - name: index-de
+        label: Home (de)
+        file: 'de/index.md'
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: home }
+          - { label: Title, name: title, widget: string }
+          - { label: Excerpt, name: excerpt, widget: text, required: false }
+          - { label: Body, name: body, widget: markdown }
+        editor:
+          preview: false
+      - name: index-el
+        label: Home (el)
+        file: 'el/index.md'
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: home }
+          - { label: Title, name: title, widget: string }
+          - { label: Excerpt, name: excerpt, widget: text, required: false }
+          - { label: Body, name: body, widget: markdown }
+        editor:
+          preview: false
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: '_projects'
+    create: true
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Weight, name: weight, widget: number }
+      - { label: Image, name: image, widget: image }
+      - { label: Gallery, name: gallery, widget: list, field: { label: Image, widget: image }, required: false }
+      - { label: Body, name: body, widget: markdown }
+    editor:
+      preview: false
+  - name: projects-de
+    label: Projects (de)
+    label_singular: Project (de)
+    folder: '_projects/de'
+    create: true
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Weight, name: weight, widget: number }
+      - { label: Image, name: image, widget: image }
+      - { label: Gallery, name: gallery, widget: list, field: { label: Image, widget: image }, required: false }
+      - { label: Body, name: body, widget: markdown }
+    editor:
+      preview: false
+  - name: projects-el
+    label: Projects (el)
+    label_singular: Project (el)
+    folder: '_projects/el'
+    create: true
+    extension: md
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Weight, name: weight, widget: number }
+      - { label: Image, name: image, widget: image }
+      - { label: Gallery, name: gallery, widget: list, field: { label: Image, widget: image }, required: false }
+      - { label: Body, name: body, widget: markdown }
+    editor:
+      preview: false

@@ -35,6 +35,10 @@ defaults:
       type: projects
     values:
       layout: project
+  - scope:
+      path: admin
+    values:
+      layout: none
 languages:
   en: English
   de: Deutsch
