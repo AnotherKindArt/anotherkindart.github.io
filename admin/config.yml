@@ -58,9 +58,11 @@ collections:
     label: Projects (de)
     label_singular: Project (de)
     folder: '_projects/de'
+    slug: {{fields.slug}}
     create: true
     extension: md
     fields:
+      - { label: Slug, name: slug, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Weight, name: weight, widget: number }
       - { label: Image, name: image, widget: image }
@@ -72,9 +74,11 @@ collections:
     label: Projects (el)
     label_singular: Project (el)
     folder: '_projects/el'
+    slug: {{fields.slug}}
     create: true
     extension: md
     fields:
+      - { label: Slug, name: slug, widget: string }
       - { label: Title, name: title, widget: string }
       - { label: Weight, name: weight, widget: number }
       - { label: Image, name: image, widget: image }
