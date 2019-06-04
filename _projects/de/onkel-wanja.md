@@ -1,5 +1,5 @@
 ---
-slug: uncle-vania
+slug: uncle-vanias
 title: Onkel Wanja
 weight: '6'
 image: /projects/images/uncle-vanya-01.jpg
