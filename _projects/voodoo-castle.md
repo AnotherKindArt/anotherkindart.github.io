@@ -1,6 +1,6 @@
 ---
 title: VOODOO CASTLE
-weight: -2
+weight: 0
 image: /projects/images/img_20181004_155642.jpg
 gallery:
   - /projects/images/img_20181004_155642.jpg
