@@ -1,6 +1,7 @@
 ---
-title: Swan Lake National Opera
-weight: 3
+slug: schwanensee-nationaloper
+title: Schwanensee Nationaloper
+weight: '6'
 image: /projects/images/swanlake_2.jpg
 gallery:
   - /projects/images/swanlake_1.jpg
@@ -9,4 +10,4 @@ gallery:
   - /projects/images/swanlake_1.jpg
   - /projects/images/swanlake_2.jpg
 ---
-Construction of a stage for the play Swan Lake directed by K. Rigos, set design by M. Tsagaris
+Bau einer Bühne für das Stück Schwanensee unter der Regie von K. Rigos, Bühnenbild von M. Tsagaris
