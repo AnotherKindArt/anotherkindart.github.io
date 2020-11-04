@@ -1,6 +1,6 @@
 ---
 title: Documenta 14 – Hiwa K.
-weight: 5
+weight: 6
 image: projects/images/documenta14-hiwa-01.jpg
 gallery:
   - projects/images/documenta14-hiwa-01.jpg

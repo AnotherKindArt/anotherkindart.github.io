@@ -1,6 +1,6 @@
 ---
 title: Christmas Trees
-weight: 7
+weight: 9
 image: projects/images/christmas-trees-01.jpg
 gallery:
   - projects/images/christmas-trees-02.jpg
