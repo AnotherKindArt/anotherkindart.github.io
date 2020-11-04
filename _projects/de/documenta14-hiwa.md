@@ -11,4 +11,4 @@ gallery:
   - projects/images/documenta14-hiwa-06.jpg
   - projects/images/documenta14-hiwa-07.jpg
 ---
-Το «Σπίτι» του Hiwa K. Δημιουργήθηκε σε συνεργασία με τον καλλιτέχνη στα πλαίσια της έκθεσης documenta 14, στο μουσείο Μπενάκη.
+"Haus" von Hiwa K. Eine Skulptur aus Stahl, Holz und Beton für die Ausstellung Documenta 14 im Benaki-Museum.

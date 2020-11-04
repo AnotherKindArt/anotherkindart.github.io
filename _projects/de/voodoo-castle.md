@@ -1,5 +1,5 @@
 ---
-title: Voodoo Νightclub - Castle
+title: Voodoo Νightclub - Burg
 weight: 4
 image: /projects/images/img_20181004_155642.jpg
 gallery:
@@ -8,6 +8,6 @@ gallery:
   - /projects/images/img_20181004_160030.jpg
   - /projects/images/img_20181004_155650.jpg
 ---
-Construction of a castle for the needs of a nightclub.
+Bau eines Schlosses für die Bedürfnisse eines Nachtclubs.
 
-The construction was made of aerated concrete.
+Die Konstruktion wurde aus Porenbeton hergestellt.

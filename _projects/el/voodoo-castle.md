@@ -8,6 +8,6 @@ gallery:
   - /projects/images/img_20181004_160030.jpg
   - /projects/images/img_20181004_155650.jpg
 ---
-Construction of a castle for the needs of a nightclub.
+Κατασκευή κάστρου για τις ανάγκες νυχτερινού κέντρου.
 
-The construction was made of aerated concrete.
+Η κατασκευή εκτελέστηκε από πορομπετόν.

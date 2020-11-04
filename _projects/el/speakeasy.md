@@ -1,6 +1,6 @@
 ---
 title: Η μυστική Αυλή του SpeakEasy
-weight: 4
+weight: 5
 image: projects/images/speakeasy-01.jpg
 ---
 Μια γεύση απο την δημιουργία της εσωτερικής αυλής του [SpeakEasy](http://popaganda.gr/singnomi-mipos-xerete-pou-vriskete-ipogia-mistiki-avli-tou-kentrou/) στο κέντρο της Αθήνας.
