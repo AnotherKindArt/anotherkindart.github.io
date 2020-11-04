@@ -8,4 +8,4 @@ gallery:
   - projects/images/christmas-trees-03.jpg
   - projects/images/christmas-trees-04.jpg
 ---
-Construction of steel Christmas Instalation for the Municipality of Kifisia, Greece
+Construction of steel Christmas Instalation for the Municipality of Kifisia, Greece.

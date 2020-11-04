@@ -1,7 +1,6 @@
 ---
-slug: voodoo-burg
-title: Voodoo-Burg
-weight: '0'
+title: Voodoo Νightclub - Burg
+weight: 0
 image: /projects/images/img_20181004_155642.jpg
 gallery:
   - /projects/images/img_20181004_155642.jpg

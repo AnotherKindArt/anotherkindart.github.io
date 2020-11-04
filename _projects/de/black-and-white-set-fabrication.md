@@ -1,7 +1,6 @@
 ---
-slug: Herstellung von Schwarz-Weiß-Filmsets
 title: Herstellung von Schwarz-Weiß-Filmsets
-weight: '2'
+weight: 2
 image: projects/images/black-and-white-set-fabrication-01.jpg
 gallery:
   - projects/images/black-and-white-set-fabrication-01.jpg
@@ -15,4 +14,3 @@ gallery:
 ---
 Fotos von der Filmkulisse Black & White von Sokratis Alafouzos
 Bühnenbild Telis Karananos und Alexandra Siafkou
-

@@ -1,7 +1,6 @@
 ---
-slug: habillieur
 title: Habillieur
-weight: '3'
+weight: 3
 image: projects/images/habillieur-01.jpg
 gallery:
   - projects/images/habillieur-01.jpg
