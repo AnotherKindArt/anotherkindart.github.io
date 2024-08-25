@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: AnotherKindArt/anotherkindart.github.io
+  branch: main
 media_folder: '_projects/images'
 public_folder: '/projects/images'
 slug:
