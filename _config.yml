@@ -5,6 +5,8 @@ plugins:
   - jekyll-default-layout
   - jekyll-sass-converter
   - jekyll-titles-from-headings
+include:
+  - _redirects
 exclude:
   - Gemfile
   - Gemfile.lock
